@@ -1,3 +1,31 @@
+html {
+  background-color: #FFDD21;
+  font-size: 66.6%;
+  font-family: "Roboto", serif;
+  letter-spacing: 1px; }
 
+.container {
+  width: 960px;
+  margin: 10px auto; }
+
+header {
+  text-align: center; }
+  header .logo {
+    margin-bottom: 30px; }
+  header h1 {
+    font-family: "Sacramento", cursive;
+    margin-bottom: 20px;
+    font-size: 8em;
+    color: #fff;
+    font-weight: 900;
+    text-shadow: 4px 4px #D5BD15; }
+  header .pure-button {
+    margin-top: 20px;
+    font-size: 1.75em;
+    background-color: #990CE8;
+    color: #fff;
+    border-radius: 6px; }
+    header .pure-button i {
+      margin-left: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

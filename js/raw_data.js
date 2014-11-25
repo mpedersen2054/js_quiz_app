@@ -18,3 +18,7 @@ var rawData = [
         'q3 a4'
     ],
 ]
+
+var q1text = 'this is question 1, hello!',
+    q2text = 'hello from question 2',
+    q3text = 'dont forget about question 3';

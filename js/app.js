@@ -1,4 +1,4 @@
-
+console.log(rawData);
 
 function Question(question, answers, correctAnswer) {
     this.question = question;

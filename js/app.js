@@ -13,7 +13,21 @@
             GAME.questions.push(q1,q2,q3);
         },
 
-        
+        askQuestion: function(i) {
+            var currentPos = GAME.questions[i],
+                q = currentPos['question'],
+                ans = currentPos['answers'];
+
+            $('.question h2').text(q);
+            // ansHtml from raw_data.js
+            $('.answers').html(ansHtml)
+                .find('.answer').children('label')
+                    .each(function(i) {
+                        $(this).text(ans[i]);
+                    })
+
+
+        }
     }
 
     GAME.initiate();

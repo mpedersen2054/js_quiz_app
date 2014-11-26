@@ -22,3 +22,22 @@ var rawData = [
 var q1text = 'this is question 1, hello!',
     q2text = 'hello from question 2',
     q3text = 'dont forget about question 3';
+
+// for inserting during askQuestion(i)
+var ansHtml="";
+ansHtml += "<div class=\"answer\">";
+ansHtml += "<input type=\"radio\" name=\"q\" id=\"a\" value=\"a\" \/>";
+ansHtml += "<label for=\"a\"> + ans[0] + <\/label>";
+ansHtml += "<\/div>";
+ansHtml += "<div class=\"answer\">";
+ansHtml += "<input type=\"radio\" name=\"q\" id=\"b\" value=\"b\" \/>";
+ansHtml += "<label for=\"a\"> + ans[1] + <\/label>";
+ansHtml += "<\/div>";
+ansHtml += "<div class=\"answer\">";
+ansHtml += "<input type=\"radio\" name=\"q\" id=\"c\" value=\"c\" \/>";
+ansHtml += "<label for=\"a\"> + ans[2] + <\/label>";
+ansHtml += "<\/div>";
+ansHtml += "<div class=\"answer\">";
+ansHtml += "<input type=\"radio\" name=\"q\" id=\"d\" value=\"d\" \/>";
+ansHtml += "<label for=\"a\"> + ans[3] + <\/label>";
+ansHtml += "<\/div>";

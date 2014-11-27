@@ -35,17 +35,27 @@ $(function() {
                 var corrAns = GAME.questions[i]['correctAnswer'],
                     subAns = $('.answer input[name="q"]:checked').val();
 
-                console.log(corrAns)
-
                 if (subAns != corrAns) {
-                    console.log('wrong!')
+                    showResults(false);
+                }
+                if (subAns == corrAns) {
+                    showResults(true);
                 }
 
-                if (subAns == corrAns) {
-                    console.log('that is right!')
-                    GAME.numCorrect += 1;
-                    GAME.currentQ += 1;
-                    GAME.askQuestion(GAME.currentQ);
+                function showResults(outcome) {
+                    if (outcome) {
+                        var text = "That is correct!";
+                        alert(text);
+                        GAME.numCorrect += 1;
+                        GAME.currentQ += 1;
+                        GAME.askQuestion(GAME.currentQ);
+                    }
+                    else {
+                        var text = "Sorry, the answer was " + corrAns;
+                        alert(text);
+                        GAME.currentQ += 1;
+                        GAME.askQuestion(GAME.currentQ);
+                    }
                 }
             })
         }

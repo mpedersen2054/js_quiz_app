@@ -1,4 +1,3 @@
-
 $(function() {
     var q1 = new Question(q1text, rawData[0], 'd'),
         q2 = new Question(q2text, rawData[1], 'a'),
@@ -8,9 +7,11 @@ $(function() {
     var GAME = GAME || {
         questions: [],
         numCorrect: 0,
+        currentQ: 0,
 
         initiate: function() {
             GAME.questions.push(q1,q2,q3);
+            GAME.askQuestion(GAME.currentQ);
         },
 
         askQuestion: function(i) {
@@ -25,7 +26,8 @@ $(function() {
                         $(this).text(ans[i]);
                     })
 
-            GAME.checkAnswer(currentQuestion)
+            $('#submit').off();
+            GAME.checkAnswer(GAME.currentQ);
         },
 
         checkAnswer: function(i) {
@@ -42,16 +44,16 @@ $(function() {
                 if (subAns == corrAns) {
                     console.log('that is right!')
                     GAME.numCorrect += 1;
-                    currentQuestion += 1;
-                    GAME.askQuestion(currentQuestion);
+                    GAME.currentQ += 1;
+                    GAME.askQuestion(GAME.currentQ);
                 }
             })
         }
     }
 
+
     GAME.initiate();
-    var currentQuestion = 0;
-    GAME.askQuestion(currentQuestion);
+
 
     function Question(question, answers, correctAnswer) {
         this.question = question;

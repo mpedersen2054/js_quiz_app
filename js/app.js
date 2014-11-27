@@ -15,9 +15,12 @@ $(function() {
         },
 
         askQuestion: function(i) {
-            var currentPos = GAME.questions[i],
+            var currentPos = (GAME.questions[i] || false),
                 q = currentPos['question'],
                 ans = currentPos['answers'];
+
+
+            !currentPos ? GAME.showResults() :
 
             $('.question h2').text(q);
             $('.answers').html(ansHtml) // ansHtml from rawData
@@ -58,6 +61,10 @@ $(function() {
                     }
                 }
             })
+        },
+
+        showResults: function() {
+            return window.location.href =
         }
     }
 

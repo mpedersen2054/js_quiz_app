@@ -51,7 +51,7 @@ $(function() {
 
     GAME.initiate();
     var currentQuestion = 0;
-
+    GAME.askQuestion(currentQuestion);
 
     function Question(question, answers, correctAnswer) {
         this.question = question;

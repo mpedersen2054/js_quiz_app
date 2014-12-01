@@ -64,7 +64,7 @@ $(function() {
         },
 
         showResults: function() {
-            return window.location.href =
+            window.location.href = 'http://localhost:1337/results.html';
         }
     }
 

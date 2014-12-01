@@ -59,11 +59,12 @@ header {
       font-weight: 600;
       padding: 0.4em 0.2em;
       line-height: 1.2; }
-    .game-wrapper .question .correct {
+    .game-wrapper .question .correct-num {
       position: absolute;
       bottom: 10px;
       right: 0;
-      color: #aaa; }
+      color: #40d47e;
+      opacity: 0.6; }
     .game-wrapper .question .question-num {
       position: absolute;
       bottom: 0;

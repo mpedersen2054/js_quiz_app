@@ -1,7 +1,9 @@
 $(function() {
     var q1 = new Question(q1text, rawData[0], 'd'),
         q2 = new Question(q2text, rawData[1], 'a'),
-        q3 = new Question(q3text, rawData[2], 'b');
+        q3 = new Question(q3text, rawData[2], 'b'),
+        q4 = new Question(q4text, rawData[3], 'b'),
+        q5 = new Question(q5text, rawData[4], 'a');
 
 
     var GAME = GAME || {
@@ -10,7 +12,7 @@ $(function() {
         currentQ: 0,
 
         initiate: function() {
-            GAME.questions.push(q1,q2,q3);
+            GAME.questions.push(q1,q2,q3,q4,q5);
             GAME.askQuestion(GAME.currentQ);
         },
 
@@ -19,8 +21,10 @@ $(function() {
                 q = currentPos['question'],
                 ans = currentPos['answers'];
 
+            !currentPos ? GAME.showFinalResults() :
 
-            !currentPos ? GAME.showResults() :
+            $('.correct-num span').text(GAME.numCorrect);
+            $('.question-num span').text(GAME.currentQ+1);
 
             $('.question h2').text(q);
             $('.answers').html(ansHtml) // ansHtml from rawData
@@ -63,7 +67,7 @@ $(function() {
             })
         },
 
-        showResults: function() {
+        showFinalResults: function() {
             window.location.href = 'http://localhost:1337/results.html';
         }
     }

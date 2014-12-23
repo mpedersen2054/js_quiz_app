@@ -16,7 +16,7 @@ html, html a {
   margin: 10px auto; }
 
 .pure-button {
-  margin-top: 20px;
+  margin-top: 1em;
   font-size: 1.75em;
   background-color: #990CE8;
   color: #fff;
@@ -27,17 +27,31 @@ html, html a {
   .pure-button:hover {
     opacity: 1; }
 
-header {
-  text-align: center; }
-  header .logo {
-    margin-bottom: 30px; }
-  header h1 {
+header .right, header .left {
+  float: left;
+  display: inline-block;
+  margin-top: 6em; }
+header .left {
+  float: left;
+  width: 62%;
+  text-align: left; }
+  header .left h1 {
     font-family: "Sacramento", cursive;
-    margin-bottom: 20px;
-    font-size: 8em;
+    margin-bottom: 0;
+    margin-top: 0.3em;
+    font-size: 10em;
     color: #fff;
     font-weight: 900;
     text-shadow: 4px 4px #D5BD15; }
+header .right {
+  width: 30%;
+  float: left;
+  padding-top: 12em;
+  margin-left: 6em; }
+  header .right .logo {
+    margin-bottom: 1em; }
+  header .right .pure-button {
+    margin-left: 0.8em; }
 
 .start-over {
   width: 800px;
@@ -81,6 +95,19 @@ header {
 #submit {
   float: right;
   margin-top: 0.6em; }
+
+.dim {
+  background-color: #555 !important; }
+
+#results {
+  display: none !important;
+  position: absolute !important;
+  left: 40% !important;
+  top: 20% !important;
+  width: 40% !important;
+  height: 40% !important;
+  background-color: #fff !important;
+  border: 5px solid #000 !important; }
 
 section#results {
   text-align: center;

@@ -1,4 +1,4 @@
-$(function() {
+(function($, document) {
     var q1 = new Question(q1text, rawData[0], 'd'),
         q2 = new Question(q2text, rawData[1], 'a'),
         q3 = new Question(q3text, rawData[2], 'b'),
@@ -11,7 +11,7 @@ $(function() {
         numCorrect: 0,
         currentQ: 0,
 
-        initiate: function() {
+        init: function() {
             GAME.questions.push(q1,q2,q3,q4,q5);
             GAME.askQuestion(GAME.currentQ);
         },
@@ -21,7 +21,10 @@ $(function() {
                 q = currentPos['question'],
                 ans = currentPos['answers'];
 
-            !currentPos ? GAME.showFinalResults() :
+            console.log(i)
+            if (i == GAME.questions.length - 1) {
+                console.log('last question!')
+            }
 
             $('.correct-num span').text(GAME.numCorrect);
             $('.question-num span').text(GAME.currentQ+1);
@@ -68,13 +71,12 @@ $(function() {
         },
 
         showFinalResults: function() {
-            window.location.href = 'http://localhost:1337/results.html';
+            alert('end of game!')
+            // window.location.href = 'http://localhost:8000/results.html';
         }
     }
 
-
-    GAME.initiate();
-
+    GAME.init();
 
     function Question(question, answers, correctAnswer) {
         this.question = question;
@@ -82,4 +84,4 @@ $(function() {
         this.correctAnswer = correctAnswer;
     }
 
-})();
+})(jQuery, document);

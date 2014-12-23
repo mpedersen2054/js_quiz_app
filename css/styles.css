@@ -92,22 +92,12 @@ header .right {
         font-size: 1.4em;
         font-weight: 300; }
 
-#submit {
+#submit, #lastq {
   float: right;
   margin-top: 0.6em; }
 
-.dim {
-  background-color: #555 !important; }
-
-#results {
-  display: none !important;
-  position: absolute !important;
-  left: 40% !important;
-  top: 20% !important;
-  width: 40% !important;
-  height: 40% !important;
-  background-color: #fff !important;
-  border: 5px solid #000 !important; }
+#lastq {
+  display: none; }
 
 section#results {
   text-align: center;

@@ -1,9 +1,9 @@
 (function($, document) {
     var q1 = new Question(q1text, rawData[0], 'd'),
         q2 = new Question(q2text, rawData[1], 'a'),
-        q3 = new Question(q3text, rawData[2], 'b'),
-        q4 = new Question(q4text, rawData[3], 'b'),
-        q5 = new Question(q5text, rawData[4], 'a');
+        q3 = new Question(q3text, rawData[2], 'b');
+        // q4 = new Question(q4text, rawData[3], 'b'),
+        // q5 = new Question(q5text, rawData[4], 'a');
 
 
     var GAME = GAME || {
@@ -12,7 +12,7 @@
         currentQ: 0,
 
         init: function() {
-            GAME.questions.push(q1,q2,q3,q4,q5);
+            GAME.questions.push(q1,q2,q3);
             GAME.askQuestion(GAME.currentQ);
         },
 
@@ -21,23 +21,23 @@
                 q = currentPos['question'],
                 ans = currentPos['answers'];
 
-            console.log(i)
-            if (i == GAME.questions.length - 1) {
-                console.log('last question!')
+            if (!currentPos) {
+                GAME.showFinalResults();
             }
+            else {
+                $('.correct-num span').text(GAME.numCorrect);
+                $('.question-num span').text(GAME.currentQ+1);
 
-            $('.correct-num span').text(GAME.numCorrect);
-            $('.question-num span').text(GAME.currentQ+1);
+                $('.question h2').text(q);
+                $('.answers').html(ansHtml) // ansHtml from rawData
+                    .find('.answer').children('label')
+                        .each(function(i) {
+                            $(this).text(ans[i]);
+                        })
 
-            $('.question h2').text(q);
-            $('.answers').html(ansHtml) // ansHtml from rawData
-                .find('.answer').children('label')
-                    .each(function(i) {
-                        $(this).text(ans[i]);
-                    })
-
-            $('#submit').off();
-            GAME.checkAnswer(GAME.currentQ);
+                $('#submit').off();
+                GAME.checkAnswer(GAME.currentQ);
+            }
         },
 
         checkAnswer: function(i) {
@@ -71,8 +71,17 @@
         },
 
         showFinalResults: function() {
-            alert('end of game!')
-            // window.location.href = 'http://localhost:8000/results.html';
+            var submit = $('#submit');
+
+            submit.attr('data-featherlight', '#showres');
+            $('#showres').html(
+                '<h2>Well Done</h2>' +
+                '<p>You answered ' +
+                GAME.numCorrect +
+                ' out of ' +
+                GAME.questions.length +
+                ' correctly.'
+            )
         }
     }
 
